@@ -104,7 +104,7 @@ test_full_range_onepass() {
 		written += 1;
 	}
 	if (written != 0x110001)
-		printf("UTF32->UTF8->UTF16: One pass conversion resulted in %x characters, wanted %x\n", written, i);
+		printf("UTF32->UTF8->UTF16: One pass conversion resulted in %x characters, wanted %x\n", (uint32_t)written, i);
 	else if (memcmp(utf32_wanted, utf32, written * sizeof(uint32_t)) != 0)
 		printf("UTF32->UTF8->UTF16: One pass conversion didn't match expected values\n");
 
@@ -131,7 +131,7 @@ test_full_range_onepass() {
 	}
 	len32 = written;
 	if (len32 != 0x110001)
-		printf("UTF32->UTF8->UTF16: Incremental conversion resulted in %x characters, wanted %x\n", len32, i);
+		printf("UTF32->UTF8->UTF16: Incremental conversion resulted in %x characters, wanted %x\n", (uint32_t)len32, i);
 	else if (memcmp(utf32_wanted, utf32, len32 * sizeof(uint32_t)) != 0)
 		printf("UTF32->UTF8->UTF16: Incremental conversion didn't match expected values\n");
 
@@ -146,7 +146,7 @@ test_full_range_onepass() {
 	/* convert utf8 to utf32 */
 	len32 = utf8_to_utf32(utf8, pos, utf32);
 	if (len32 != 0x110001)
-		printf("UTF32->UTF8->UTF32: One pass conversion resulted in %x characters, wanted %x\n", len32, i);
+		printf("UTF32->UTF8->UTF32: One pass conversion resulted in %x characters, wanted %x\n", (uint32_t)len32, i);
 	else if (memcmp(utf32_wanted, utf32, len32 * sizeof(uint32_t)) != 0)
 		printf("UTF32->UTF8->UTF32: One pass conversion didn't match expected values\n");
 
@@ -168,7 +168,7 @@ test_full_range_onepass() {
 
 	len32 = utf32_pos - utf32;
 	if (len32 != 0x110001)
-		printf("UTF32->UTF8->UTF32: Incremental conversion resulted in %x characters, wanted %x\n", len32, i);
+		printf("UTF32->UTF8->UTF32: Incremental conversion resulted in %x characters, wanted %x\n", (uint32_t)len32, i);
 	else if (memcmp(utf32_wanted, utf32, len32 * sizeof(uint32_t)) != 0)
 		printf("UTF32->UTF8->UTF32: Incremental conversion didn't match expected values\n");
 

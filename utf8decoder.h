@@ -37,10 +37,10 @@ void utf8_to_utf32_continue(utf8_decode_state *st, const uint8_t *m, size_t mlen
 void utf8_to_utf32_finish(utf8_decode_state *st, uint32_t *out, size_t *written);
 
 /* largest size of the resulting string from fromchar -> tochar */
-inline size_t max_output_utf8_to_utf16_characters(size_t len) { return len; }
-inline size_t max_output_utf8_to_utf16_bytes(size_t len) { return max_output_utf8_to_utf16_characters(len) * sizeof(uint16_t); }
-inline size_t max_output_utf8_to_utf32_characters(size_t len) { return len; }
-inline size_t max_output_utf8_to_utf32_bytes(size_t len) { return max_output_utf8_to_utf32_characters(len) * sizeof(uint32_t); }
+#define max_output_utf8_to_utf16_characters(len) (size_t)(len)
+#define max_output_utf8_to_utf16_bytes(len) (max_output_utf8_to_utf16_characters(len) * sizeof(uint16_t))
+#define max_output_utf8_to_utf32_characters(len) (size_t)(len)
+#define max_output_utf8_to_utf32_bytes(len) (max_output_utf8_to_utf32_characters(len) * sizeof(uint32_t))
 
 #endif /* UTF8DECODER_H */
 

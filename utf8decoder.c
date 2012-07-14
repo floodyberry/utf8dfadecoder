@@ -266,7 +266,7 @@ utf8_decode_continue_utf16(const uint8_t **m, const uint8_t *end, UTF8_TABLE_TYP
 
 void
 utf8_to_utf16_continue(utf8_decode_state *st, const uint8_t *m, size_t mlen, size_t *read, uint16_t *out, size_t *written) {
-	const uint8_t *m_start = m, *m_end = m_start + mlen, *m_end6 = (mlen >= 6) ? (m_end - 6) : m_start;
+	const uint8_t *m_start = m, *m_end = m_start + mlen;
 	uint16_t *out_start = out;
 	UTF8_TABLE_TYPE state = (UTF8_TABLE_TYPE)st->state;
 	uint32_t c = st->c;
@@ -350,7 +350,7 @@ utf8_decode_continue_utf32(const uint8_t **m, const uint8_t *end, UTF8_TABLE_TYP
 
 void
 utf8_to_utf32_continue(utf8_decode_state *st, const uint8_t *m, size_t mlen, size_t *read, uint32_t *out, size_t *written) {
-	const uint8_t *m_start = m, *m_end = m_start + mlen, *m_end6 = (mlen >= 6) ? (m_end - 6) : m_start;
+	const uint8_t *m_start = m, *m_end = m_start + mlen;
 	uint32_t *out_start = out;
 	UTF8_TABLE_TYPE state = (UTF8_TABLE_TYPE)st->state;
 	uint32_t c = st->c;

@@ -7,3 +7,7 @@ This is a UTF-8 [DFA](http://en.wikipedia.org/wiki/Deterministic_finite_automato
 The somewhat arbitrary goal was a decoder that emitted 1 replacement character for each unexpected byte, 1 replacement character for each unfinished UTF-8 sequence up to the point where the sequence was still legal, and 1 replacement character for each valid UTF-8 sequence that represents a non-valid codepoint or overlong encoding. 
 
 I still use the basic form he presented, but generated expanded state tables to handle the new requirements, and slightly modified the innerloop to only require one state lookup at the expense of a larger tables (256 + 108) bytes vs (256 + 5376) bytes.
+
+## LICENSE
+
+MIT, or Public Domain
